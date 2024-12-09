@@ -81,15 +81,16 @@
               <td id="gia">120.900 đ</td>
               <td>
                 <div id="buy-amount">
-                  <button class="minus-btn" onclick="handleMinus()">
+                  <button class="minus-btn" data-product-id="1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                       stroke="currentColor" class="w-6 h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
                     </svg>
                   </button>
-                  <input type="text" name="amount" id="amount" value="1">
-                  <button class="plus-btn" onclick="handlePlus()"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <input type="number" name="amount" id="amount-1" value="1" min="1">
+                  <button class="plus-btn" data-product-id="1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                   </button>
@@ -99,24 +100,26 @@
             <tr>
               <td><input type="checkbox"></td>
               <td class="sanpham">
-                <img src="../img/product/Nghệ thuật – Văn hóa/hoa sen 1.jpg">
+                <img src="../img/product/Nghệ thuật – Văn hóa/hoa sen 1.jpg" alt="Sản phẩm">
                 <p>Từng Bước Nở Hoa Sen</p>
               </td>
               <td id="gia">100.000 đ</td>
               <td>
                 <div id="buy-amount">
-                  <button class="minus-btn" onclick="handleMinus()">
+                  <button class="minus-btn" data-product-id="2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                       stroke="currentColor" class="w-6 h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
                     </svg>
                   </button>
-                  <input type="text" name="amount" id="amount" value="1">
-                  <button class="plus-btn" onclick="handlePlus()"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <input type="number" name="amount" id="amount-2" value="1" min="1">
+                  <button class="plus-btn" data-product-id="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                   </button>
+                </div>
               </td>
               <td id="xoa"><a href="../html/giohangxoa.html">XÓA</a></td>
             </tr>
@@ -164,7 +167,7 @@
       </span>
     </div>
   </footer>
-  <script>
+  <!-- <script>
     let amountElement = document.getElementById('amount')
 
     let amount = amountElement.value;
@@ -189,8 +192,44 @@
       render(amount);
       console.log(amount)
     })
-  </script>
-
+  </script> -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Xử lý tăng số lượng
+        document.querySelectorAll('.plus-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productId = event.currentTarget.getAttribute('data-product-id');
+                const amountElement = document.getElementById(`amount-${productId}`);
+                let amount = parseInt(amountElement.value);
+                amount++;
+                amountElement.value = amount;
+            });
+        });
+    
+        // Xử lý giảm số lượng
+        document.querySelectorAll('.minus-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productId = event.currentTarget.getAttribute('data-product-id');
+                const amountElement = document.getElementById(`amount-${productId}`);
+                let amount = parseInt(amountElement.value);
+                if (amount > 1) {
+                    amount--;
+                    amountElement.value = amount;
+                }
+            });
+        });
+    
+        // Kiểm tra giá trị nhập vào
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', (event) => {
+                let amount = parseInt(event.target.value);
+                if (isNaN(amount) || amount < 1) {
+                    event.target.value = 1;
+                }
+            });
+        });
+    });
+    </script>
 
 </body>
 
