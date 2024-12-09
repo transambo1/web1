@@ -61,7 +61,7 @@
                     </a>
                 </li>
 
-                
+
                 <li>
                     <a href="../html/trangchuthongke.html">
                         <span class="icon">
@@ -161,8 +161,9 @@
                             <option>Tìm theo tên người dùng</option>
                         </select>
                         <input id="find" type="text" placeholder="Nhập thông tin cần tìm">
-                        <a href="../html/adminnotfound1.html"><button type="button" style="font-size: larger;">Tìm</button>
-                   </a>
+                        <a href="../html/adminnotfound1.html"><button type="button"
+                                style="font-size: larger;">Tìm</button>
+                        </a>
                     </div>
                 </div>
                 <div class="chartsBx">
@@ -186,7 +187,23 @@
                             <tr>
                                 <td>1</td>
                                 <td><a href="../html/chitietdonhang.html"> ĐH 5728319</a></td>
-                                <td>thaihien99</td>
+                                <td>Thanhthanh</td>
+                                <td>0987654321</td>
+                                <td id="trangthai">Chờ xác nhận</td>
+                                <td>14/10/2023</td>
+                                <td>
+                                    <button id="xoanguoidung" onclick="toggleTrangThai(this)">Chưa xử lý</button>
+                                </td>
+                            </tr>
+                            
+                           
+                            
+                            
+                            
+                            <tr>
+                                <td>1</td>
+                                <td><a href="../html/chitietdonhang.html"> ĐH 5728319</a></td>
+                                <td>thanhlam</td>
                                 <td>0987654321</td>
                                 <td>Chờ xác nhận</td>
                                 <td>14/10/2023</td>
@@ -198,7 +215,7 @@
                             <tr>
                                 <td>2</td>
                                 <td><a href="../html/chitietdonhang.html"> ĐH 5728319</a></td>
-                                <td>thaihien99</td>
+                                <td>thanhlam</td>
                                 <td>0987654321</td>
                                 <td>Chờ xác nhận</td>
                                 <td>14/10/2023</td>
@@ -211,7 +228,7 @@
                             <tr>
                                 <td>3</td>
                                 <td><a href="../html/chitietdonhang.html"> ĐH 5728319</a></td>
-                                <td>thaihien99</td>
+                                <td>thanhlam</td>
                                 <td>0987654321</td>
                                 <td>Chờ xác nhận</td>
                                 <td>14/10/2023</td>
@@ -224,7 +241,7 @@
                             <tr>
                                 <td>4</td>
                                 <td><a href="../html/chitietdonhang.html"> ĐH 5728319</a></td>
-                                <td>thaihien99</td>
+                                <td>thanhlam</td>
                                 <td>0987654321</td>
                                 <td>Đang giao</td>
                                 <td>14/10/2023</td>
@@ -237,7 +254,7 @@
                             <tr>
                                 <td>5</td>
                                 <td><a href="../html/chitietdonhang.html"> ĐH 5728319</a></td>
-                                <td>thaihien99</td>
+                                <td>thanhlam</td>
                                 <td>0987654321</td>
                                 <td>Đang giao</td>
                                 <td>14/10/2023</td>
@@ -254,8 +271,8 @@
                     </table>
                     <div class="pagination">
                         <li class="hientai">1</li>
-                        <li><a href="quanlydonhang1.html" style="color: black;">2</a></li></a> 
-                        <li><a href="quanlydonhang1.html" style="color: black;" >NEXT</a></li>
+                        <li><a href="quanlydonhang1.html" style="color: black;">2</a></li></a>
+                        <li><a href="quanlydonhang1.html" style="color: black;">NEXT</a></li>
                     </div>
                 </div>
 
@@ -268,6 +285,22 @@
         </div>
     </div>
     <!-- ======= Charts JS ====== -->
+    <script>
+        function toggleTrangThai(button) {
+            
+            const trangThaiCell = button.closest('tr').querySelector('#trangthai');
+    
+            if (button.textContent === "Chưa xử lý") {
+               
+                button.textContent = "Đã xử lý";
+                trangThaiCell.textContent = "Đã xác nhận";
+            } else {
+                
+                button.textContent = "Chưa xử lý";
+                trangThaiCell.textContent = "Chờ xác nhận";
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="../js/chartdonhang.js"></script>
     <!-- ====== ionicons ======= -->

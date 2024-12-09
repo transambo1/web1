@@ -16,7 +16,7 @@
   <div class="container">
     <nav>
       <div class="logo">
-        <a href="../html/index.html"><img src="../img/banner/logoo.png" alt="Logo" height="120px" width="120px"></a>
+        <a href="../html/indexlogin.html"><img src="../img/banner/logoo.png" alt="Logo" height="120px" width="120px"></a>
       </div>
       <ul>
         <li><a href="#">TÁC GIẢ</a></li>
@@ -51,15 +51,13 @@
           }
         }
 
-        // Lắng nghe sự kiện nhấn Enter
+        
         document.getElementById("searchInput").addEventListener("keydown", function (event) {
           if (event.key === "Enter") {
             event.preventDefault(); // Ngăn submit mặc định
             searchAction();
           }
         });
-
-        // Lắng nghe sự kiện click vào biểu tượng tìm kiếm
         document.querySelector(".icon").addEventListener("click", function () {
           searchAction();
         });
