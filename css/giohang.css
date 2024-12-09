@@ -47,7 +47,7 @@ td a:hover {
     text-decoration: none;
 }
 
-#buy-amount #amount {
+#buy-amount #amount-2,#amount-1,#amount-3,#amount-4  {
     width: 20%;
     text-align: center;
     border: 1px solid #ececec;
