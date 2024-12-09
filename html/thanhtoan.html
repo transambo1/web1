@@ -25,9 +25,9 @@
         <li class="theloai"><a href="#">THỂ LOẠI</a>
           <div class="menuu">
             <ul>
-              <li><a href="../html/kynangsong1.html">Kỹ năng sống - Phát triển cá nhân</a></li>
-              <li><a href="../html/manga.html">Manga – Comic</a></li>
-              <li><a href="../html/Nghệ thuật - Văn hóa.html">Nghệ thuật – Văn hóa</a></li>
+              <li><a href="../html/kynangsong1login.html">Kỹ năng sống - Phát triển cá nhân</a></li>
+              <li><a href="../html/mangalogin.html">Manga – Comic</a></li>
+              <li><a href="../html/Nghệ thuật - Văn hóalogin.html.html">Nghệ thuật – Văn hóa</a></li>
             </ul>
           </div>
         </li>
@@ -35,14 +35,37 @@
         <li><a href="#">KHUYẾN MÃI</a></li>
       </ul>
       <div class="box">
-        <input type="checkbox" id="check">
         <div class="search-box">
-          <input type="text" placeholder="Tìm kiếm">
-          <label for="check" class="icon">
-            <a href="../html/notfound.html"><i class="fas fa-search"></i></a>
+          <input type="text" id="searchInput" placeholder="Tìm kiếm">
+          <label for="searchButton" class="icon">
+            <i class="fas fa-search"></i>
           </label>
+          <button id="searchButton" style="display:none;"></button> <!-- Nút ẩn cho label -->
         </div>
       </div>
+      <script>
+        function searchAction() {
+          const query = document.getElementById("searchInput").value.trim();
+          if (query) {
+            window.location.href = `../html/timkiemlogin.html?search=${encodeURIComponent(query)}`;
+          } else {
+            alert("Vui lòng nhập từ khóa tìm kiếm!");
+          }
+        }
+
+        // Lắng nghe sự kiện nhấn Enter
+        document.getElementById("searchInput").addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault(); // Ngăn submit mặc định
+            searchAction();
+          }
+        });
+
+        // Lắng nghe sự kiện click vào biểu tượng tìm kiếm
+        document.querySelector(".icon").addEventListener("click", function () {
+          searchAction();
+        });
+      </script>
       <div class="buttons">
         <a href="../html/lichsumuahang.html" class="login"><img
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAkpJREFUSEvl1knIjVEcx/HPS+aNcWVnYSND5lKmiNgQC2RFyZBMCymlWFjItEBSNkRKSUJIFBtTkSHWZCEkRZGp/9u59bzPe+99njvUu3B2955zft/zH87vPB16aHT0EFcz4N4Yhynp0A/xHL8bCaJR8DIcxcgc5C0243JZeCPgw9haIHwIO8rAy4Ln42YSfIRdeJJ+T8L+TOrn4k4RvCz4FualWk7Gz5xwXzzGWFzHonaAe+Eb+mMTjtcQ3Yhj+Ioh+FMPXibi6OBnSWQxrtUQjCivprkxeNUqODr4XRJZhfM1BFfiXJqLPe9bBcf+TxiKel17ENvxESPaUePQ2IfdySSW4kpOeAkuIsxlD/a2CxyN9RKjkuD91MV9UifPTP+/Sa6W7/pu5yjTXJVN0WRnE6haQGGbUec4YOFoBBxicbU2YAGm41eKPO7uyaIrlD1No+DCSMouKAsehhmYhnCufjnAjxT5A0T9PxcdoAg8GAewltJP6N+U9p3JxaqeoR54OU5geGbn9+Ri1bx6PAZm1n7AelyqRq4Fjkc+0laZP40jeIGIqJZWPBJbsCYtiLVTUxm67KkGjpcmrsZoRIQLca+oZrn5WcnTIwOvEdnokqVq4LDFbUloHU41CK0sjzRHqWJ0s9pq4IhyAG6kaJvkdm67jfgwCM1B9e5xXJsw+RgrcKEVKlbjTNKIN/pLRS8f8cTMJ03UNqJuZWTf6LDc6J3OkQfPznwvzcHdVqioqZcHh2FMSLCn2dQ0eYCaekXO1SSveNv/B/4HUH5pHwh1c9gAAAAASUVORK5CYII=" />
@@ -119,7 +142,7 @@
 			</div>
 				<div class="fixed-buttons-container">
 					<div class="back-to-cart">
-						<a href="../html/indexlogin.html">
+						<a href="../html/giohanglogin.html">
 							<span>
 								<img
 									src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/btn_back.svg?q=10354">
