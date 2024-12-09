@@ -90,4 +90,52 @@ label img {
 }
 .checkout-btn:hover{
   background-color: #C92127;
+  align-self: right;
+}
+
+#cardInfo {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#cardInfo h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#cardInfo label {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+}
+
+#cardInfo input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkout-button {
+  text-align: left; /* Căn lề trái cho khối chứa nút */
+  margin-top: 20px; /* Khoảng cách trên nếu cần */
+}
+
+
+.checkout-btn {
+  padding: 10px 20px; /* Điều chỉnh độ rộng và chiều cao */
+  font-size: 16px; /* Kích thước chữ */
+  background-color: #28a745; /* Màu nền */
+  color: #fff; /* Màu chữ */
+  border: none; /* Loại bỏ viền */
+  border-radius: 4px; /* Bo góc */
+  cursor: pointer; /* Thay đổi con trỏ khi di chuột */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+.checkout-btn:hover {
+  background-color: #218838; /* Màu nền khi hover */
 }

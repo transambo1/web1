@@ -63,30 +63,29 @@
         <a href="../html/thanhtoan copy.html">
             <p style="font-size: 17px; margin: 20px 0;"></p>
         </a>
-        <div>
-            Họ và tên người nhận : <strong>Nguyễn Văn A</strong><br><br>
-            Email:<strong>tempmail@gmail.com</strong><br><br>
-            Số điện thoại:<strong>0923142455</strong><br><br>
-            Địa chỉ nhận hàng:<strong>65 An Dương Vương</strong><br><br>
-
-        </div>
+      <div id="confirmationDetails">
+        <p>Họ và tên người nhận: <strong id="confirmName"></strong></p>
+        <p>Email: <strong id="confirmEmail"></strong></p>
+        <p>Số điện thoại: <strong id="confirmPhone"></strong></p>
+        <p>Địa chỉ nhận hàng: <strong id="confirmAddress"></strong></p>
+      </div>
     </div>
     <div class="right">
-        <h3>PHƯƠNG THỨC THANH TOÁN</h3>
-        <div>
+      <h3>PHƯƠNG THỨC THANH TOÁN</h3>
+      <div>
           <br>
-            <!-- <input type="radio" id="age1" name="age" value="30"> -->
-             Phương thức thanh toán:
-            <label for="age1">&nbsp;<img id="zalopay" src="../img/banner/zalopay.png">&nbsp;&nbsp;Zalo Pay</label><br>
-            <!-- <input type="radio" id="age2" name="age" value="60">
-            <label for="age2">&nbsp;<img  src="../img/banner/momo.jpg">&nbsp;&nbsp;MOMO</label><br>
-            <input type="radio" id="age3" name="age" value="100">
-            <label for="age3">&nbsp;<img src="../img/banner/atm.png">&nbsp;&nbsp;ATM</label><br>
-            <input type="radio" id="age4" name="age" value="120">
-            <label for="age3">Thanh toán bằng tiền mặt</label><br> -->
-            <br>
-        </div>
-    </div>
+          Phương thức thanh toán:
+          <strong id="confirmPaymentMethod"></strong>
+          <br>
+          <!-- Nếu phương thức là ATM, hiển thị thêm thông tin thẻ -->
+          <div id="cardDetails" style="display: none; margin-top: 10px;">
+              <p>Số thẻ: <strong id="confirmCardNumber"></strong></p>
+              <p>Tên chủ thẻ: <strong id="confirmCardHolder"></strong></p>
+              <p>Ngày hết hạn: <strong id="confirmExpiryDate"></strong></p>
+          </div>
+          <br>
+      </div>
+  </div>
     <div class="wrapper1"> 
        <h3>KIỂM TRA LẠI ĐƠN HÀNG</h3>
         <div class="row">
@@ -175,7 +174,80 @@
 			</span>
 		  </div>
 		</footer>
-	  
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // Lấy thông tin từ sessionStorage
+          const name = sessionStorage.getItem('checkoutName');
+          const email = sessionStorage.getItem('checkoutEmail');
+          const phone = sessionStorage.getItem('checkoutPhone');
+          const address = sessionStorage.getItem('checkoutAddress');
+          const paymentMethod = sessionStorage.getItem('paymentMethod');
+          const cardNumber = sessionStorage.getItem('cardNumber');
+          const cardHolder = sessionStorage.getItem('cardHolder');
+          const expiryDate = sessionStorage.getItem('expiryDate');
+  
+          console.log('Name:', name);
+          console.log('Email:', email);
+          console.log('Phone:', phone);
+          console.log('Address:', address);
+          console.log('Payment Method:', paymentMethod);
+          console.log('Card Number:', cardNumber);
+          console.log('Card Holder:', cardHolder);
+          console.log('Expiry Date:', expiryDate);
+  
+          // Hiển thị thông tin lên giao diện
+          if(name && email && phone && address && paymentMethod){
+              document.getElementById('confirmName').textContent = name;
+              document.getElementById('confirmEmail').textContent = email;
+              document.getElementById('confirmPhone').textContent = phone;
+              document.getElementById('confirmAddress').textContent = address;
+  
+              // Hiển thị phương thức thanh toán đã chọn
+              const paymentMethodText = getPaymentMethodText(paymentMethod);
+              document.getElementById('confirmPaymentMethod').textContent = paymentMethodText;
+  
+              // Nếu phương thức thanh toán là ATM, hiển thị thông tin thẻ
+              if(paymentMethod === 'atm' && cardNumber && cardHolder && expiryDate){
+                  document.getElementById('cardDetails').style.display = 'block';
+                  document.getElementById('confirmCardNumber').textContent = '**** **** **** ' + cardNumber.slice(-4);
+                  document.getElementById('confirmCardHolder').textContent = cardHolder;
+                  document.getElementById('confirmExpiryDate').textContent = expiryDate;
+              }
+  
+              // Xóa dữ liệu khỏi sessionStorage sau khi hiển thị
+              sessionStorage.removeItem('checkoutName');
+              sessionStorage.removeItem('checkoutEmail');
+              sessionStorage.removeItem('checkoutPhone');
+              sessionStorage.removeItem('checkoutAddress');
+              sessionStorage.removeItem('paymentMethod');
+              sessionStorage.removeItem('cardNumber');
+              sessionStorage.removeItem('cardHolder');
+              sessionStorage.removeItem('expiryDate');
+              sessionStorage.removeItem('cvv');
+          } else {
+              // Nếu không có thông tin, chuyển hướng về trang thanh toán
+              alert('Không tìm thấy thông tin thanh toán. Vui lòng nhập lại.');
+              window.location.href = 'thanhtoan.html';
+          }
+      });
+  
+      // Hàm chuyển đổi giá trị paymentMethod sang dạng hiển thị
+      function getPaymentMethodText(method) {
+          switch(method){
+              case 'zalopay':
+                  return 'Zalo Pay';
+              case 'momo':
+                  return 'Momo';
+              case 'atm':
+                  return 'ATM';
+              case 'cash':
+                  return 'Tiền mặt';
+              default:
+                  return 'Không xác định';
+          }
+      }
+  </script>
 	  </body>
+    
 	  
 	  </html>
