@@ -80,14 +80,14 @@ form input[type="text"] {
   padding: 20px;
   margin-top: 10px;
   transition: transform 0.3s ease-in-out;
+  align-self: flex-end;
+  
 }
 
 label img {
   width: 2%;
 }
-#zalopay{
-  width: 4%;
-}
+
 .checkout-btn:hover{
   background-color: #C92127;
   align-self: right;
