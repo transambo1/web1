@@ -232,7 +232,7 @@
               // Nếu phương thức thanh toán là ATM, hiển thị thông tin thẻ
               if(paymentMethod === 'atm' && cardNumber && cardHolder && expiryDate){
                   document.getElementById('cardDetails').style.display = 'block';
-                  document.getElementById('confirmCardNumber').textContent = '**** **** **** ' + cardNumber.slice(-4);
+                  document.getElementById('confirmCardNumber').textContent = ' ' + cardNumber.slice(-4);
                   document.getElementById('confirmCardHolder').textContent = cardHolder;
                   document.getElementById('confirmExpiryDate').textContent = expiryDate;
               }
