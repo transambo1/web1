@@ -236,11 +236,11 @@
 							}
 	
 							// Kiểm tra định dạng số thẻ và CVV
-							const cardNumberPattern = /^\d{16}$/;
+							const cardNumberPattern = /^\d{3}$/;
 							const cvvPattern = /^\d{3}$/;
 	
 							if (!cardNumberPattern.test(cardNumber)) {
-								alert('Số thẻ ATM phải gồm 16 chữ số.');
+								alert('Số thẻ ATM phải gồm 3 chữ số.');
 								return;
 							}
 	
