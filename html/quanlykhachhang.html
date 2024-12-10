@@ -130,18 +130,18 @@
                         const boxadduser = document.getElementById('boxadduser');
                         const addUserForm = document.getElementById('addUserForm');
 
-                        
+
                         adduserBtn.addEventListener('click', function () {
 
                             if (boxadduser.style.display === 'none' || boxadduser.style.display === '') {
                                 boxadduser.style.display = 'block';
                                 document.querySelector('.overlay').classList.add('show-overlay');
-        document.body.classList.add('no-scroll');
-        adduserBtn.style.zIndex = '1000';
+                                document.body.classList.add('no-scroll');
+                                adduserBtn.style.zIndex = '1000';
                             } else {
                                 boxadduser.style.display = 'none';
                                 document.querySelector('.overlay').classList.remove('show-overlay');
-        document.body.classList.remove('no-scroll');
+                                document.body.classList.remove('no-scroll');
                             }
                         });
 
@@ -165,12 +165,12 @@
                         <option>Mới nhất</option>
                         <option>Cũ nhất</option>
                     </select>
-                   <div>
-                    <input id="timnguoidung" type="text" placeholder="Tên người dùng ...">
+                    <div>
+                        <input id="timnguoidung" type="text" placeholder="Tên người dùng ...">
 
-         
-                            <a href="../html/adminnotfound1.html"><button >Tìm</button></a>
-                   </div>
+
+                        <a href="../html/adminnotfound1.html"><button>Tìm</button></a>
+                    </div>
                 </div>
                 <div class="user-table">
                     <table>
@@ -304,64 +304,64 @@
                         </tbody>
                     </table>
                     <div class="overlay"></div>
-                                <div class="boxsuauser" id="boxsuauser">
-                                    <button onclick="dongFormChinhSua()">X</button>
-                                    <script>
-                                        function dongFormChinhSua() {
-                                            var boxSuaUser = document.getElementById('boxsuauser');
-                                            boxSuaUser.style.display = 'none';
-                                            document.querySelector('.overlay').classList.remove('show-overlay');
-                                            document.body.classList.remove('no-scroll');
-                                        }
-                                    </script>
-                    <h2 style="margin-bottom: 10px;">Sửa thông tin thaihien99</h2>
-                                    <form id="suaUserForm">                                      
-                                        <div class="form-group">
-                                            <label for="username">Tên đăng nhập:</label>
-                                            <input type="text" id="username" value="thaihien99">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="name">Họ và tên:</label>
-                                            <input type="text" id="name" value="Trần Thái Hiễn">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email:</label>
-                                            <input type="text" id="email" value="tranthaihien02@gmail.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="goi">Hạng thành viên:</label>
-                                            <select id="goi" name="goi">
-                                                <option>Bạc</option>
-                                                <option>Vàng</option>
-                                                <option>Kim cương</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password">Mật khẩu:</label>
-                                            <input type="password" id="password" value="password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="update">
-                                                <a onclick="warning()"><i class="fa-solid fa-download"></i>Cập nhật</a>
-                                            </div>
-
-                                        </div>
-
-                                    </form>
+                    <div class="boxsuauser" id="boxsuauser">
+                        <button onclick="dongFormChinhSua()">X</button>
+                        <script>
+                            function dongFormChinhSua() {
+                                var boxSuaUser = document.getElementById('boxsuauser');
+                                boxSuaUser.style.display = 'none';
+                                document.querySelector('.overlay').classList.remove('show-overlay');
+                                document.body.classList.remove('no-scroll');
+                            }
+                        </script>
+                        <h2 style="margin-bottom: 10px;">Sửa thông tin thaihien99</h2>
+                        <form id="suaUserForm">
+                            <div class="form-group">
+                                <label for="username">Tên đăng nhập:</label>
+                                <input type="text" id="username" value="thaihien99">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Họ và tên:</label>
+                                <input type="text" id="name" value="Trần Thái Hiễn">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" value="tranthaihien02@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="goi">Hạng thành viên:</label>
+                                <select id="goi" name="goi">
+                                    <option>Bạc</option>
+                                    <option>Vàng</option>
+                                    <option>Kim cương</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mật khẩu:</label>
+                                <input type="password" id="password" value="password">
+                            </div>
+                            <div class="form-group">
+                                <div class="update">
+                                    <a onclick="warning()"><i class="fa-solid fa-download"></i>Cập nhật</a>
                                 </div>
 
-                                <script src="../js/suasanpham.js"></script>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <script src="../js/suasanpham.js"></script>
                 </div>
                 <div class="pagination">
                     <li class="hientai">1</li>
-                    <li><a href="quanlykhachhang1.html" style="color: black;">2</a></li></a> 
-                    <li><a href="quanlykhachhang1.html" style="color: black;" >NEXT</a></li>
+                    <li><a href="quanlykhachhang1.html" style="color: black;">2</a></li></a>
+                    <li><a href="quanlykhachhang1.html" style="color: black;">NEXT</a></li>
                 </div>
-            <!-- ================ Add Charts JS ================= -->
-            <div class="chartsBx">
-                <h2>THỐNG KÊ LƯỢNG ĐĂNG KÝ NĂM 2024</h2>
-                <div class="chart"> <canvas id="chart-2"></canvas> </div>
-            </div>
+                <!-- ================ Add Charts JS ================= -->
+                <div class="chartsBx">
+                    <h2>THỐNG KÊ LƯỢNG ĐĂNG KÝ NĂM 2024</h2>
+                    <div class="chart"> <canvas id="chart-2"></canvas> </div>
+                </div>
             </div>
         </div>
     </div>
