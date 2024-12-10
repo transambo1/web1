@@ -26,7 +26,13 @@ body {
   position: relative;
   width: 100%;
 }
-
+.login{
+  display: flex;
+  margin-right: 20px;
+}
+.tooltip{
+  margin-left: 10px;
+}
 /* =============== Navigation ================ */
 .navigation {
   position: fixed;
